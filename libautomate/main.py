@@ -1,8 +1,12 @@
-# Library main
+# Copyright (C) 2021 - Abhijit Nandy
+
+
+# Lib
 
 import io
 from time import sleep
 import pyautogui
+
 
 #----------------------------------------------------------------------------
 
@@ -14,6 +18,7 @@ def findImgAndClick(strImagePath):
     else:
         center = pyautogui.center(imgLocation)
         pyautogui.click(center.x, center.y)
+        # pyautogui.click(strImagePath)
     return True
     
 
@@ -30,13 +35,15 @@ def zeroInByImgSeqAndClick(listImgPaths):
             return idx-1    # return idx of last img that was found        
         regionRect = (imgLocation.left, imgLocation.top, imgLocation.width, imgLocation.height)
         idx += 1
+    # Final img NOT found
+    if imgLocation is None: 
+        return -1 # error!
     # Final img has been found
-    if imgLocation is not None: 
-        center = pyautogui.center(imgLocation)
-        pyautogui.click(center.x, center.y)
-        return idx-1   # return idx of last img that was found, which is also the last img in this case
-    return -1 # error!
+    center = pyautogui.center(imgLocation)
+    pyautogui.click(center.x, center.y)
+    return idx-1   # return idx of last img that was found, which is also the last img in this case
 
+    
 
 def zeroInByImgInListSeqAndClick(listImgsInListPaths):
     idx = 1
@@ -69,7 +76,8 @@ def zeroInByImgInListSeqAndClick(listImgsInListPaths):
     center = pyautogui.center(imgLocation)
     pyautogui.click(center.x, center.y)
     return idx-1   # return idx of last img that was found, which is also the last img in this case
-  
+    
+
 
 def findImgInListAndClick(listImgPaths):
     idx = 1

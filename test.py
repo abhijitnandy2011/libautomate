@@ -1,6 +1,7 @@
-# Tests
+# Copyright (C) 2021 - Abhijit Nandy
 
-import src.libautomate as libautomate
+# Tests
+import libautomate
 
 
 # print(libautomate.findImageAndClick("testimgs/tab.PNG"))
