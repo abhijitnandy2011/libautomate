@@ -10,7 +10,6 @@ import pyautogui
 
 #----------------------------------------------------------------------------
 
-
 def findImgAndClick(strImagePath):
     imgLocation = pyautogui.locateOnScreen(strImagePath)
     if imgLocation is None:
@@ -85,5 +84,16 @@ def findImgInListAndClick(listImgPaths):
         if findImgAndClick(imgPath):
             return idx
         idx += 1
-    return -1    
+    return -1
+
+
+def findImgInListClickType(listImgPaths, strTypeThis, interval=0.25):
+    idx = findImgInListAndClick(listImgPaths)
+    if idx > 0:
+        # Can type now
+        pyautogui.write(strTypeThis, interval) 
+        return idx
+    return -1
+        
+    
     

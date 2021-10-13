@@ -6,12 +6,17 @@ import libautomate
 
 # print(libautomate.findImageAndClick("testimgs/tab.PNG"))
 
-# idx = libautomate.findImgInListAndClick(
+# lastFoundIdx = libautomate.findImgInListAndClick(
 # [ "testimgs/tabGrey.PNG", "testimgs/tabLit.PNG"]
 # )
 
-lastFoundIdx = libautomate.zeroInByImgSeqAndClick(
-[ "testimgs/tab1Grey.PNG", "testimgs/tabCloseBtn.PNG"]
-)
+# lastFoundIdx = libautomate.zeroInByImgSeqAndClick(
+# [ "testimgs/tab1Grey.PNG", "testimgs/tabCloseBtn.PNG"]
+# )
 
+
+
+lastFoundIdx = libautomate.findImgInListClickType(
+    [ "testimgs/folderPathBar.PNG"], "Hello"
+)
 print(lastFoundIdx)
